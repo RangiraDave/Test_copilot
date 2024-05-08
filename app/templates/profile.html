@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Profile</h1>
+    <div>
+        <h2>Username: {{ username }}</h2>
+        <p>Email: {{ email }}</p>
+        <p>Phone Number: {{ phone }}</p>
+        <p>Location: {{ location }}</p>
+    </div>
+    <a href="/edit-profile">Edit Profile</a>
+    <!-- Add any other content or functionality you want to include -->
+{% endblock %}

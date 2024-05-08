@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Login</h1>
+    <form method="POST" action="{{ url_for('login_route') }}">
+        {{ form.hidden_tag() }}
+        <div class="form-group">
+            {{ form.email.label(class="form-label") }}
+            {{ form.email(id="email", class="form-control", autocomplete="email") }}
+            {% for error in form.email.errors %}
+                <span class="error">{{ error }}</span>
+            {% endfor %}
+        </div>
+        <div id="password-group" class="form-group" style="display: none;">
+            {{ form.password.label(class="form-label") }}
+            {{ form.password(class="form-control", autocomplete="current-password") }}
+        </div>
+        <div id="email-message" class="form-group"></div>
+        <button id="login-button" type="submit" class="btn btn-primary">Login</button>
+        <p>Forgot your password? Reset it using<a href="{{ url_for('reset_password') }}">this link</a></p>
+    </form>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="{{ url_for('static', filename='javascript/script.js') }}"></script>
+{% endblock %}
